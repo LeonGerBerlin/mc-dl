@@ -1,0 +1,37 @@
+pde:
+  name: Heston # BlackScholes
+  total_time: 1
+  num_time_interval: 25
+  parameter:
+#    # 1-D Black Scholes
+#    dim: 1
+#    sigma: 0.2
+#    rate: 0.0
+#    strike: 100
+#    spot: 100
+#    xinit: 100
+#    yinit: 7.965567455405804
+    # 2-D Heston
+    dim: 2
+    spot: 100
+    v0: 0.010201
+    sigmaV: 0.61
+    rate: 0.0319
+    strike: 100
+    rho: -0.7
+    kappa: 6.21
+    theta: 0.019
+    yinit: 6.8061
+model: 
+  activation: 'tanh'
+  layer_size: [50]
+  subnetwork_per_timestep: True
+optimization:
+  optimizer:
+    name: 'adam'
+    decay: 2000
+    learning_rate: 0.001
+  epochs: 2000
+  batch_size: 512
+logging:
+  log_every: 1
